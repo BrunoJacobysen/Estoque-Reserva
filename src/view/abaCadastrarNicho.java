@@ -9,7 +9,6 @@ import java.awt.*;
 public class abaCadastrarNicho extends JPanel {
     private JTextField txtTag;
     private JTextField txtCodigo;
-    private int quantidadePecas = 0;
     private final Estoque estoque = new Estoque();
 
 
