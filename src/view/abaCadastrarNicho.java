@@ -59,7 +59,7 @@ public class abaCadastrarNicho extends JPanel {
     }
 
     private JButton getBtnSalvar () {
-        JButton btnSalvar = new JButton("Save");
+        JButton btnSalvar = new JButton("Salvar");
         btnSalvar.setBounds(40, 380, 100, 30);
         btnSalvar.addActionListener(e -> {
             try {

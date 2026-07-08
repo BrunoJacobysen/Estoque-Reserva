@@ -1,5 +1,6 @@
 package view;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 
@@ -26,12 +27,18 @@ public class TelaPrincipal extends JFrame {
     }
 
     public void iniciarAbas() {
-        JTabbedPane painelAbas = new JTabbedPane();
 
+        UIManager.put("TabbedPane.selected", Color.WHITE);
+        UIManager.put("TabbedPane.selectedForeground", Color.RED);
+        UIManager.put("TabbaedPane.foreground", Color.WHITE);
+
+
+        JTabbedPane painelAbas = new JTabbedPane();
         abaCadastrarProduto abacadastro = new abaCadastrarProduto();
         painelAbas.addTab("Cadastro de Produtos", abacadastro);
         abaCadastrarNicho abaCadastrarNicho = new abaCadastrarNicho();
         painelAbas.addTab("Cadastro Nichos", abaCadastrarNicho);
+
 
 
 
