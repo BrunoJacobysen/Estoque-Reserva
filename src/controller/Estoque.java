@@ -1,6 +1,6 @@
 package controller;
 
-import teste.*;
+import model.*;
 
 
 import javax.swing.*;
@@ -42,7 +42,7 @@ public class Estoque extends JPanel {
     }
 
     public void adicionarProduto(Produto novoProduto) {
-        if (totalProdutos < produtos.length) {
+        if (totalProdutos < produtos.length && novoProduto.isValid()) {
             produtos[totalProdutos] = novoProduto;
             totalProdutos++;
 
@@ -50,13 +50,11 @@ public class Estoque extends JPanel {
             labelStatus.setText("Erro");
    }
 
-   public boolean adicionarNicho(Nicho novoNicho) {
+   public void adicionarNicho(Nicho novoNicho) {
         if (totalNichos < nichos.length) {
             nichos[totalNichos] = novoNicho;
             totalNichos++;
-            return true;
-        } else
-            return false;
+        }
    }
 
     //busca os produtos pelo codigo de barra

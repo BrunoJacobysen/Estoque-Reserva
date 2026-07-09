@@ -1,5 +1,7 @@
+package view;
+
 import controller.Estoque;
-import teste.Produto;
+import model.Produto;
 
 public class TesteEstoque {
     public static void main(String[] args) {

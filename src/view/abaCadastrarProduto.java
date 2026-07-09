@@ -1,6 +1,6 @@
 package view;
 import controller.Estoque;
-import teste.Produto;
+import model.Produto;
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,6 +16,7 @@ public class abaCadastrarProduto extends JPanel {
     private final String[] tamanhos = {"Selecione o tamanho", "PP", "P", "M", "G", "GG", "3G"};
     private final JComboBox<String> boxTamanhos = new JComboBox<>(tamanhos);
     private final Estoque estoque = new Estoque();
+
 
 
     public abaCadastrarProduto() {
@@ -138,7 +139,7 @@ public class abaCadastrarProduto extends JPanel {
 
                 }
 
-                if (txtCodigoBarras.getText().trim().isEmpty()) {
+                if (txtCodigoBarras.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(this,
                             "O campo Código de Barras é obrigatório!",
                             "Informe o Código Barras do produto",
@@ -200,6 +201,8 @@ public class abaCadastrarProduto extends JPanel {
                     return;
                 }
 
+
+
                 Produto novoProduto = new Produto(
                         txtNome.getText(),
                         txtCodigoBarras.getText(),
@@ -207,12 +210,13 @@ public class abaCadastrarProduto extends JPanel {
                         txtReferencia.getText(),
                         txtTamanho);
 
-                estoque.adicionarProduto(novoProduto);
-
-                JOptionPane.showMessageDialog(this,
-                        "Produto adicionado!",
-                        "Cadastro efetuado",
-                        JOptionPane.INFORMATION_MESSAGE);
+                if (novoProduto.isValid()) {
+                    estoque.adicionarProduto(novoProduto);
+                    JOptionPane.showMessageDialog(this,
+                            "Produto adicionado!",
+                            "Cadastro efetuado",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
 
                 txtNome.setText("");
                 txtNicho.setText("");

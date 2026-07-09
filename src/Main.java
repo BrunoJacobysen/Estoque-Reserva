@@ -1,5 +1,5 @@
 import controller.*;
-import teste.*;
+import model.*;
 import view.*;
 import javax.swing.*;
 import java.util.Scanner;

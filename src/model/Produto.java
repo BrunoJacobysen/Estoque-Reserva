@@ -1,4 +1,4 @@
-package teste;
+package model;
 
 public class Produto {
     public String nome;

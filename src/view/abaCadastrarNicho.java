@@ -1,7 +1,7 @@
 package view;
 
 import controller.Estoque;
-import teste.Nicho;
+import model.Nicho;
 
 import javax.swing.*;
 import java.awt.*;
