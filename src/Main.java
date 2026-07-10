@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class Main extends JFrame{
     public static void main(String[] args) {
-
-        TelaPrincipal testeTela = new TelaPrincipal();
         Estoque estoque = new Estoque();
         Scanner scanner = new Scanner(System.in);
         int opcao;

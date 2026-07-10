@@ -7,6 +7,7 @@ public class Nicho {
     public String descricao;                //descrição de qual tipo de peça vai ser colocado no nicho
 
     public Nicho(String codigo, String descricao) {
+        isValid();
         this.descricao = descricao;
         this.codigo = codigo;
     }
@@ -16,11 +17,6 @@ public class Nicho {
         return isValidCodig() && isValidDesc();
     }
 
-    public String getErrorValidacao() {
-        if (!isValidDesc()) return "Descrição do nicho inválida.";
-        if (isValidCodig()) return "Código do nicho inválida.";
-        return null;
-    }
 
     public int get_quantPc() {
         return quantidadePecas;

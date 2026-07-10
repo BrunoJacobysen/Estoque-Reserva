@@ -11,7 +11,7 @@ public class Produto {
 
     public Produto(String nome, String ref, String codigoBarras, String tamanho,
                    String cor, String numNicho) {
-
+        isValid();
         this.codigoBarras = codigoBarras;
         this.ref = ref;
         this.nome = nome;
@@ -20,32 +20,20 @@ public class Produto {
         this.numNicho = numNicho;
     }
 
-    public Produto(String nome, String codigoBarras, String ref, String nicho, String tamanho) {
+    public Produto(String nome, String codigoBarras, String ref,
+                   String nicho, String tamanho) {
 
         this.codigoBarras = codigoBarras;
         this.ref = ref;
         this.nome = nome;
         this.numNicho = nicho;
         this.tamanho = tamanho;
-
     }
 
     //valida os parametros para criação do produto
     public boolean isValid() {
         return isValidNome() && isValidTamanho() && isValidCor() &&
                 isValidNicho() && isValidCodBarras() && isValidRef();
-    }
-
-
-    //exibe erro depois da validação
-    public String getErrorValidacao () {
-        if (!isValidNome()) return "Nome inválido!";
-        if (!isValidCodBarras()) return "Código de Barras inválido!";
-        if (!isValidRef()) return "Referência inválida!";
-        if (!isValidNicho()) return "Número de teste.Nicho inválido!";
-        if (!isValidCor()) return "Cor inválida";
-        if (!isValidTamanho()) return "Tamanho inválido";
-        return null;
     }
 
     public String get_CodigoBarras() {
@@ -97,22 +85,25 @@ public class Produto {
     }
 
     //funçoes para b
-    public boolean isValidNome() {
+    private boolean isValidNome() {
         return nome != null && !nome.trim().isEmpty();
     }
-    public boolean isValidNicho () {
+    private boolean isValidNicho () {
         return numNicho != null && !numNicho.trim().isEmpty();
     }
-    public boolean isValidCodBarras() {
+    private boolean isValidCodBarras() {
         return  codigoBarras != null && !codigoBarras.trim().isEmpty();
+        /*
+        colocar mais uma condição no cod.barrar para sempre ter 13 caracteres codigoBarras.lenght() != 13;
+         */
     }
-    public boolean isValidRef() {
+    private boolean isValidRef() {
         return ref != null && !ref.trim().isEmpty();
     }
-    public boolean isValidCor () {
+    private boolean isValidCor () {
         return cor != null && !cor.trim().isEmpty();
     }
-    public boolean isValidTamanho() {
+    private boolean isValidTamanho() {
         return tamanho != null && !tamanho.trim().isEmpty();
     }
 }

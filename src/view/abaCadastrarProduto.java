@@ -210,13 +210,12 @@ public class abaCadastrarProduto extends JPanel {
                         txtReferencia.getText(),
                         txtTamanho);
 
-                if (novoProduto.isValid()) {
-                    estoque.adicionarProduto(novoProduto);
-                    JOptionPane.showMessageDialog(this,
+
+                estoque.adicionarProduto(novoProduto);
+                JOptionPane.showMessageDialog(this,
                             "Produto adicionado!",
                             "Cadastro efetuado",
                             JOptionPane.INFORMATION_MESSAGE);
-                }
 
                 txtNome.setText("");
                 txtNicho.setText("");
