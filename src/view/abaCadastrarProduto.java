@@ -201,8 +201,6 @@ public class abaCadastrarProduto extends JPanel {
                     return;
                 }
 
-
-
                 Produto novoProduto = new Produto(
                         txtNome.getText(),
                         txtCodigoBarras.getText(),

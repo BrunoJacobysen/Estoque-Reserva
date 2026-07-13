@@ -5,7 +5,7 @@ import model.*;
 
 import javax.swing.*;
 
-public class Estoque extends JPanel {
+public class Estoque {
     public Produto[] produtos;
     public Nicho[] nichos;
     private int totalProdutos;
@@ -39,45 +39,31 @@ public class Estoque extends JPanel {
     }
 
     public void adicionarProduto(Produto novoProduto) {
-        for (int i = 0; i < produtos.length; i++) {
-            if (produtos[i].get_CodigoBarras().equalsIgnoreCase(novoProduto.get_CodigoBarras())) {
-
-                JOptionPane.showMessageDialog(this,
-                        "Produto já cadastrado!",
-                        "Erro de cadastro",
-                        JOptionPane.ERROR_MESSAGE);
-                break;
-            } else if (totalProdutos < produtos.length && novoProduto.isValid()) {
-                produtos[totalProdutos] = novoProduto;
-                totalProdutos++;
-            }
+        if (totalProdutos < produtos.length && novoProduto.isValid()) {
+            produtos[totalProdutos] = novoProduto;
+            totalProdutos++;
         }
-   }
+    }
 
-   public void adicionarNicho(Nicho novoNicho) {
-        if (totalNichos < nichos.length || novoNicho.isValid()) {
+    public void adicionarNicho(Nicho novoNicho) {
+        if (totalNichos < nichos.length && novoNicho.isValid()) {
             nichos[totalNichos] = novoNicho;
             totalNichos++;
         }
-   }
+    }
 
-    //busca os produtos pelo codigo de barra
     public Produto buscar_codigoBarras(String codigoBuscado) {
 
-        //verifica se há produtos
+        if (totalProdutos != 0) {
+            for (int i = 0; i < totalProdutos; i++) {
+                Produto produtoAtual = produtos[i];
 
-        if (totalProdutos == 0) {
-            return null;
-        }
-
-        //busca segura
-        for (int i = 0; i < totalProdutos; i++) {
-            Produto produtoAtual = produtos[i];
-
-            if (produtoAtual != null &&
-                produtoAtual.get_CodigoBarras() != null &&
-                produtoAtual.get_CodigoBarras().equals(codigoBuscado)) {
-                return produtoAtual;
+                if (produtoAtual != null &&
+                        produtoAtual.get_CodigoBarras() != null &&
+                        produtoAtual.get_CodigoBarras().equals(codigoBuscado))
+                {
+                    return produtoAtual;
+                }
             }
         }
         return null;
@@ -85,51 +71,47 @@ public class Estoque extends JPanel {
 
     public Produto buscar_ref(String refBuscada) {
 
-        //busca os produtos pela referencia
+        if (totalProdutos != 0) {
+            for (int i = 0; i < totalProdutos; i++) {
+                Produto produtoAtual = produtos[i];
 
-
-        if (totalProdutos == 0) {
-            return null;
-        }
-
-        for (int i = 0; i < totalProdutos; i++) {
-            Produto produtoAtual = produtos[i];
-
-            if (produtoAtual != null &&
-                produtoAtual.get_Ref() != null &&
-                produtoAtual.get_Ref().equals(refBuscada)) {
-                return produtoAtual;
+                if (produtoAtual != null &&
+                        produtoAtual.get_Ref() != null &&
+                        produtoAtual.get_Ref().equals(refBuscada))
+                {
+                    return produtoAtual;
+                }
             }
         }
-
         return null;
     }
 
-   public String listarProdutos() {
+    public String listarProdutos() {
 
-        if (totalProdutos == 0) {
-            JOptionPane.showMessageDialog(null, "❌ Nenhum produto cadastrado no sistema! Por favor cadastrar");
-
-        } else {
+        if (totalProdutos != 0) {
             for (int i = 0; i < totalProdutos; i++) {
                 Produto p = produtos[i];
             }
-        }
-       return listarProdutos();
-   }
+        } else
+            return null;
 
-   public String listarNichos () {
+        return listarProdutos();
+    }
 
-        if ( totalNichos == 0) {
-            JOptionPane.showMessageDialog(this,"Nenhum nicho cadastrado no sistema! Por favor cadastrar.");
+    public String listarNichos() {
 
-        } else {
+        if (totalNichos != 0) {
             for (int i = 0; i < totalNichos; i++) {
                 Nicho n = nichos[i];
             }
-        }
-       return listarNichos();
-   }
+
+        } else
+            return null;
+
+        return listarNichos();
+    }
 }
+
+
 
 

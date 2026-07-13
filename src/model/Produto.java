@@ -94,7 +94,7 @@ public class Produto {
     private boolean isValidCodBarras() {
         return  codigoBarras != null && !codigoBarras.trim().isEmpty();
         /*
-        colocar mais uma condição no cod.barrar para sempre ter 13 caracteres codigoBarras.lenght() != 13;
+        colocar mais uma condição no cod.barrar para sempre ter 13 caracteres codigoBarras.lenght() = 13;
          */
     }
     private boolean isValidRef() {
