@@ -18,7 +18,7 @@ public class abaCadastrarNicho extends JPanel {
         gerenciarComponentes();
     }
 
-    public void gerenciarComponentes() {
+    private void gerenciarComponentes() {
 
         JLabel labelTag = new JLabel("Tag");
         labelTag.setHorizontalTextPosition(JLabel.LEFT);

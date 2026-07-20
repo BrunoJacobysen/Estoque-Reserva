@@ -39,6 +39,7 @@ public class Estoque {
     }
 
     public void adicionarProduto(Produto novoProduto) {
+
         if (totalProdutos < produtos.length && novoProduto.isValid()) {
             produtos[totalProdutos] = novoProduto;
             totalProdutos++;
@@ -46,6 +47,7 @@ public class Estoque {
     }
 
     public void adicionarNicho(Nicho novoNicho) {
+
         if (totalNichos < nichos.length && novoNicho.isValid()) {
             nichos[totalNichos] = novoNicho;
             totalNichos++;
@@ -59,8 +61,8 @@ public class Estoque {
                 Produto produtoAtual = produtos[i];
 
                 if (produtoAtual != null &&
-                        produtoAtual.get_CodigoBarras() != null &&
-                        produtoAtual.get_CodigoBarras().equals(codigoBuscado))
+                    produtoAtual.get_CodigoBarras() != null &&
+                    produtoAtual.get_CodigoBarras().equals(codigoBuscado))
                 {
                     return produtoAtual;
                 }

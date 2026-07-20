@@ -38,6 +38,8 @@ public class TelaPrincipal extends JFrame {
         painelAbas.addTab("Cadastro de Produtos", abacadastro);
         abaCadastrarNicho abaCadastrarNicho = new abaCadastrarNicho();
         painelAbas.addTab("Cadastro Nichos", abaCadastrarNicho);
+        abaConsultarProduto abaConsulProduto = new abaConsultarProduto();
+        painelAbas.addTab("Consultar Produtos", abaConsulProduto);
 
 
 

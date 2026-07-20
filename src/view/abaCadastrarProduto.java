@@ -25,7 +25,7 @@ public class abaCadastrarProduto extends JPanel {
         compCadastroProduto();
     }
 
-    public void compCadastroProduto() {
+    private void compCadastroProduto() {
 
         JLabel labelNome = new JLabel("Nome");
         labelNome.setHorizontalTextPosition(JLabel.LEFT);
